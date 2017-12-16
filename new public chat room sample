@@ -1,0 +1,398 @@
+<body>
+  <div  class="userListContainer col-sm-3">
+    <div class="row">
+        <div class="panel-heading">
+          <span class="glyphicon glyphicon-user">　<span id="chatMemberText">Chat</span></span>
+        </div>
+        <div class="userlist-body">
+          <li class="user"><a href="#">　<img src="https://pbs.twimg.com/profile_images/378800000822867536/3f5a00acf72df93528b6bb7cd0a4fd0c.jpeg" class="userthumbnail">　<span>Doge</span></a></li>
+    <li class="user"><a href="#">　<img src="https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg" class="userthumbnail">　<span>Karol</span></a></li>
+          
+        </div>
+    </div>
+  </div>
+  
+  <div class="chatContainer col-sm-7">        <div class="row">
+         <div class="panel-heading">
+      <span class="glyphicon glyphicon-comment"></span>　<span id="chatroomNameText">Public chat room</span><span class="welcome">Welcome,</span>
+    </div> 
+          <section class="messageFlow">
+    <div class="from-me">
+      <p>Hello,　I'm Doge. What's your name?</p>
+    </div>
+     <img src="https://pbs.twimg.com/profile_images/378800000822867536/3f5a00acf72df93528b6bb7cd0a4fd0c.jpeg" class="mychatAvator">
+  <div class="clear"></div>
+    
+    <img src="https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg" class="otherchatAvator">        
+    <div class="from-them">
+      <p>Hi Doge,　I'm Karol.</p>
+    </div>
+  <div class="clear"></div>
+    <div class="from-me">
+      <p>This is public chat room.</p>
+    </div>
+    <img src="https://pbs.twimg.com/profile_images/378800000822867536/3f5a00acf72df93528b6bb7cd0a4fd0c.jpeg" class="mychatAvator">
+  <div class="clear"></div>
+            
+     <img src="https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg" class="otherchatAvator">
+    <div class="from-them">
+      <p>It's pretty cool!</p>
+    </div>
+   
+  <div class="clear"></div>
+    <div class="from-me">
+      <p>Lorem ipsum dolor sit amet, ea oblique constituam signiferumque eam. Pri adipisci maluisset te.</p>
+    </div>
+     <img src="https://pbs.twimg.com/profile_images/378800000822867536/3f5a00acf72df93528b6bb7cd0a4fd0c.jpeg" class="mychatAvator">       
+    
+  <div class="clear"></div>
+    <img src="https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg" class="otherchatAvator">
+    <div class="from-them">
+      <p>Hey Doge, What are you saying? Is that invocation or magic spell ?</p>
+    </div>
+     
+     <div class="from-me">
+      <img class="imgBox" src="http://i3.kym-cdn.com/photos/images/facebook/000/723/268/739.png">
+    </div>
+     <img src="https://pbs.twimg.com/profile_images/378800000822867536/3f5a00acf72df93528b6bb7cd0a4fd0c.jpeg" class="mychatAvator">
+  <div class="clear"></div>
+            
+    </section>
+          <div class="inputContainer">
+            <form action="">
+              <input id="imgfromdisk" type="image" src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-128.png">
+              <input id="message" autocomplete="off" placeholder="Type your message..."><button id="send">Send</button>
+            </form>
+          </div>
+      </div>
+  </div>
+  
+   <div id="userInfoModal" class="modal fade bs-example-modal-sm">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="chatSettingText">Please set up the configuration of chatroom</h3>
+        </div>
+        <div class="modal-body">
+          <div  class="input-group">
+            <span id="nicknameText" class="input-group-addon" >Nickname</span>
+  <input id="nickname" type="text" class="form-control" placeholder="username or nickname here" aria-describedby="basic-addon1">
+          </div><br>
+       
+       <div class="input-group">
+            <span id="avatarText" class="input-group-addon" >Avatar/Icon</span>
+  <input id="headImage" type="url" class="form-control" placeholder="the url address of your image here" aria-describedby="basic-addon1">
+          </div><br>
+          
+          <div  class="input-group">
+            <span id="languageText" class="input-group-addon" >Language</span>
+  <select id="language"  class="form-control" >
+    <option value="eng">English</option>
+    <option value="cn">繁體中文</option>
+    <option value="jp">日本語</option>
+    </select>
+          </div>
+        </div><br>
+        
+        <div class="modal-footer">
+          <button id="saveSetting" type="button" class="btn btn-primary" >OK</button>
+        </div>
+      </div> 
+    </div>
+  </div>
+</body>
+<style>
+body
+{
+  background: #E8FFFF;
+  height: auto;
+}
+.modal-content
+{
+  background-color: #CCCCFF;
+}
+li
+{
+  list-style: none;
+}
+.userListContainer
+{
+  margin: 3%;
+  border: 1px #C9FFFF solid;
+  background: #fff;
+  height: 740px;
+  overflow-y: auto;
+}
+.panel-heading
+{
+  background: #96FFFF;
+}
+.userthumbnail
+{
+  width: 55px;
+  height: 55px;
+  display: inline-block;
+  border-radius: 8%;
+}
+
+li:hover
+{
+  background: #A3A3FF;
+}
+li a
+{
+  text-decoration: none;
+  color: #000;
+  &:hover
+  {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+.user
+{
+  margin-top: 1%;
+  height: 55px;
+  font-size: 20px;
+  margin-bottom: 2%;
+  
+}
+
+.chatContainer
+{
+  margin-top: 3%;
+  border: 1px #C9FFFF solid;
+  height: 740px;
+  background: #fff;
+}
+.messageFlow
+{
+  background: #FAFAFA;
+  overflow-y: auto;
+  height: 610px;
+}
+.welcome
+{
+  margin-left: 51%;
+}
+
+form
+{
+  height: 130px;
+  background: #FAFAFA;
+  border: 1px #C9FFFF solid;
+}
+#message
+{
+  margin: 1% 0 1% 1%;
+  width: 80%;
+  height: 68px;
+  font-size: 18px;
+}
+#send
+{
+  border: none;
+  background: #B8B8FF;
+  margin: 1% 0 1% 1%;
+  width:10%;
+  height: 68px;
+}
+
+#imgfromdisk
+{
+  margin-top: 1%;
+  width: 5%;
+  height: 40px
+}
+
+//chat message box 
+section div
+{
+  max-width: 600px;
+  //new a line to avoid the message contents  outside the range of message box
+  //防止文字超出對話框
+  word-wrap: break-word;
+  word-break: normal;
+  margin-bottom: 20px;
+  line-height: 15px;
+}
+
+.clear
+{
+  //不讓div元素在同一行，換行，形成交叉對話的感覺
+  clear: both;
+}
+
+.from-me
+{
+  margin-top: 1%;
+  right: 12%;
+  position: relative;
+  padding: 10px 20px;
+  color: white;
+  background: #0B93F6;
+  border-radius: 25px;
+  float: right;
+  font-family: "Helvetica Neue";
+  font-size: 20px;
+}
+
+.from-them
+{
+  margin-top: 1%;
+  left: 4%;
+  position: relative;
+  padding: 10px 20px;
+  color: black;
+  background: #E5E5EA;
+  border-radius: 25px;
+  float: left;
+  font-family: "Helvetica Neue";
+  font-size: 20px;
+}
+
+.mychatAvator
+{
+  position: relative;
+  margin-top: 1%;
+  width: 55px;
+  height: 55px;
+  display: inline-block;
+  border-radius: 8%;
+  left: 90%;
+  
+}
+
+.otherchatAvator
+{
+  position: relative;
+  margin-top: 1%;
+  width: 55px;
+  height: 55px;
+  border-radius: 8%;
+  left: 2%;
+  float: left;
+}
+
+.imgBox
+{
+   max-width: 570px;
+}
+</style>
+<script>
+var entriesDataEng = {
+  nickname: "Nickname",
+  avatar : "Avatar/Icon",
+  language: "Language",
+  chatMemeber: "Chat",
+  chatRoomName: "Public chat room",
+  welcome: ", welcome to chat",
+  inputhint: "Type your message...",
+  send: "Send",
+  settingText : "Please set up the configuration of chatroom",
+  OKText: "OK"
+};
+var entriesDataCn = {
+  nickname: "暱稱",
+  avatar : "大頭貼",
+  language: "語言設定",
+  chatMemeber: "在線成員",
+  chatRoomName: "公開聊天室",
+  welcome: "，歡迎您",
+  inputhint: "說點什麼...",
+  send: "Enter",
+  settingText : "請設定聊天室",
+  OKText: "確定"
+};
+var entriesDataJp = {
+  nickname: "お名前",
+  avatar : "アイコン",
+  language: "言語設定",
+  chatMemeber: "メンバー",
+  chatRoomName: "公開チャットルーム",
+  welcome: "さん、ようこそ ",
+  inputhint: "Type your message...",
+  send: "発言",
+  settingText : "チャットルームの設定をします",
+  OKText: "設定保存"
+};
+var entries = {
+    eng: entriesDataEng,
+    cn: entriesDataCn,
+    jp: entriesDataJp
+};
+var userList = [];
+var defaultImgSrc = "https://media0.giphy.com/media/qrwthQPPQrtEk/200_s.gif";
+$(document).ready(function()
+{
+     $('#userInfoModal').modal('show');
+     
+    //Scroll to bottom of Div
+  //滾動條一直在最底部
+  $('.messageFlow').scrollTop($('.messageFlow')[0].scrollHeight);
+  
+    $('#saveSetting').on('click', function()
+    {
+       var name = $('#nickname').val();
+       if(checkUser(name))
+       {
+         $('#nickname').val("");
+         alert("Nickname already exists or can not be empty.");
+       }
+       else
+       {
+         var userDataObj = {
+           name: $('#nickname').val(),
+           img: "https://media0.giphy.com/media/qrwthQPPQrtEk/200_s.gif"
+         };
+         entries['name']　= userDataObj.name;
+         if($('#headImage').val().trim() != "")
+         {
+            userDataObj.img = $('#headImage').val();
+         }
+         var myUserList = '<li class="user"><a href="#">　<img src="' + userDataObj.img + '" class="userthumbnail">　<span>'+ userDataObj.name +'</span></a></li>';
+         $(".userlist-body").append(myUserList);
+        
+         setLanguage(entries[$('#language').find(":selected").val()]);
+         $('#userInfoModal').modal('hide');
+       }
+    });
+    $("#language").on('change', function()
+    {
+        setLanguage(entries[$(this).val()]);
+    });
+});
+
+function setLanguage(entriesChose)
+{
+   $('#chatSettingText').text(entriesChose.settingText);
+   $('#nicknameText').text(entriesChose.nickname);
+   $('#avatarText').text(entriesChose.avatar);
+   $('#languageText').text(entriesChose.language);
+   $('#saveSetting').text(entriesChose.OKText);
+   $('#chatMemberText').text(entriesChose.chatMemeber);
+   $('#chatroomNameText').text(entriesChose.chatRoomName);
+   $('#send').text(entriesChose.send);
+   $('#message').attr("placeholder", entriesChose.inputhint);
+    if(entries.hasOwnProperty("name"))
+    {
+      $('.welcome').text(entries.name + entriesChose.welcome  );
+    }
+}
+
+function checkUser(name)
+{
+  if(name == "")
+  {
+     return true;
+  }
+  else if(userList.indexOf(name) != -1)
+  {
+     return true;
+  }
+  else
+  {
+    return false;
+  }
+}
+</script>
