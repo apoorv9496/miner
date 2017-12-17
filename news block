@@ -1,0 +1,119 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 center-box">
+      <div class="text-center animated fadeIn">
+        <button class="btn btn-primary" id="getQuote">News</button>
+        <p>
+        <div class="jumbotron quote"><p>Press the button above to get new news.</p></div>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
+<style>
+body {
+  color: white;
+  background: #a90329;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #0c243b 0%, #052542 44%,#011e38 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #0c243b 0%, #052542 44%, #011e38 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #0c243b 0%, #052542 44%, #011e38 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#0c243b', endColorstr='#6d0019', GradientType=0);
+  /* IE6-9 */
+}
+
+.jumbotron {
+  margin: 0 5%;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#300001+0,1c0001+44,000000+100 */
+  background: #300001;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #300001 0%, #1c0001 44%, #000000 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #300001 0%, #1c0001 44%, #000000 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #300001 0%, #1c0001 44%, #000000 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#300001', endColorstr='#000000', GradientType=0);
+  /* IE6-9 */
+}
+
+#changeme {
+  color: white;
+  text-decoration: none;
+}
+
+.center-box {
+  padding: 0 3% 3% 3%;
+  margin-top: 50px;
+  height: 100vh;
+}
+
+.tweetbtn {
+  visibility: hidden;
+}
+</style>
+<script>
+// Ensures all code happens after the page loads.
+$(document).ready(function() {
+  // Gets JSON data for the quote button.
+  // Uses Math.random to generate random quotes with .content.
+
+  var tweetMe = "";
+  $(".btn").on("click", function() {
+    this.blur();
+  }); // removes outline from buttons
+  $.getJSON(
+'https://newsapi.org/v2/top-headlines?' +
+          'sources=bbc-news&' +
+  'apiKey=1e4a0f53ac9c43599e9426ed5aca4413';    function(a) {
+      $("#getNews").on("click", function() {
+         $("#getNews").html("NEW NEWS");
+        $(".tweetbtn").css("visibility", "visible").addClass("animated bounce");
+        var r = Math.floor(Math.random() * (34 - 1 + 1)) + 1;
+        $(".News").html("<p class='fader'>" + a[r].content.replace(/<p>|<\/p>/gi, "") + "</p>" + "<p class='fader'>— " + a[r].title + "</p>");
+        console.log(a[r].content);
+        $('.fader').addClass("animated fadeIn");
+        
+        tweetMe = a[r].content + "<p>— " + a[r].title + "</p>";
+      });
+    }
+  );
+
+  // Gets JSON data for tweeting.
+  // Note: This is unused additional code for randomized tweets. Does not tweet the   //   same code as generated with the button.
+
+  $.getJSON("https://newsapi.org/v2/top-headlines?sources=google-news&apiKey={API_KEY}",
+    function(a) {
+      $(".tweetbtn").on("click", function() {
+        var r = Math.floor(Math.random() * (34 - 1 + 1)) + 1;
+        var tweetMeZ = a[r].content + "<p>— " + a[r].title + "</p>";
+
+        // filters out HTML decimal references such as &#8217 (an apostrophe);
+        // This code, and on, is used in both options.
+
+        function parseHtmlEnteties(tweetMe) {
+          return tweetMe.replace(/&#([0-9]{1,4});/gi, function(match, numStr) {
+            var num = parseInt(numStr, 10); // read num as normal number
+            return String.fromCharCode(num);
+          });
+        }
+
+        // finshes the filtering process, removes paragraph tags.
+
+        var tweetMe2 = parseHtmlEnteties(tweetMe);
+        tweetMe2 = tweetMe2.replace(/<p>/gi, "").replace(/<\/p>/gi, "");
+
+        // Prepares processed JSON data for Twitter.
+
+        document.getElementById("changeme").href = status;
+      });
+    }
+  );
+});
+
+</script>
