@@ -1,0 +1,82 @@
+.start_mining {
+    background-color: #10273E; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 15px;
+    align-self: center;
+    text-align: center;
+    align-content: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+}
+.top_bar{
+	background-color: #0c243b;
+}
+.background{
+	background-color: #707E8C;
+	/*background-image: url("https://www.xmple.com/wallpaper/blue-linear-gradient-green-1920x1080-c2-00bfff-90ee90-a-60-f-14.svg"); */
+	background-repeat: no-repeat;
+	width: auto; /*or your image's width*/
+	height: auto; /*or your image's height*/
+	margin: 0;
+	padding: 0;
+}
+.monero_info{	 
+	 margin: 10px;
+}
+.color{
+background-color: #0C243B;
+}
+.homeColor {
+	color: white;
+}
+.button{
+	background: #F56568;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.shadowClass{
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	background: #0C243B;
+}
+.shadowClass2{
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.padding_call{
+	padding: 15px 15px;
+	align-self: center;
+	align-content: center;
+	align-items: center;
+}
+.font{
+	font-size: 24px;
+	color: #0c243b;
+}
+.align{
+	text-align: left;
+}
+.items{
+	align-self:center;
+	padding-left: 100px;
+}
+.buttonsPadding{
+	padding-left: 32px;
+}
+.pads{
+	margin: 10px;
+	padding: 10px;
+}
+.powered{
+	font-style: italic;
+}
+.globe{
+	background-image: url(https://d30y9cdsu7xlg0.cloudfront.net/png/248-200.png);
+}
