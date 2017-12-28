@@ -1,2 +1,2 @@
 # miner
-christmas release
+2018 release
