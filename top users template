@@ -1,0 +1,160 @@
+<div id="app"></div>
+<style>
+.header{
+    margin-bottom: 30px;
+    background-color: #0c243b;
+    color: #eeeeee;
+    height: 50px;
+    width: 100%;
+    text-align:center;
+    font-family:Arial;
+}
+
+.title{
+  text-align:center;
+  background-color:#0c243b;
+  color:#eeeeee;
+}
+
+.avatar{
+  width:40px;
+  border-radius:20%
+}
+
+.leaderBoard{
+  display:block;
+}
+body{
+  background-color:#eeeeee;
+}
+
+.table{
+  background-color:white;
+}
+.footer{
+  text-align:center;
+}
+</style>
+<script>
+class Header extends React.Component{
+  render(){
+    return (
+    <div className='header'>
+        <h1>Top Users</h1>
+        </div>)
+  }
+}
+
+class Footer extends React.Component{
+  render(){
+    return (
+    <div className='footer'>
+        Alexandre Robin - FreeCodeCamp
+        </div>)
+  }
+}
+
+
+
+class LeaderBoard extends React.Component{
+  constructor(){
+    super()
+    this.onRecentClick = this.onRecentClick.bind(this)
+    this.onAllTimeClick = this.onAllTimeClick.bind(this)
+  }
+  
+  onRecentClick(){
+    this.props.column('/top/recent')
+  }
+  onAllTimeClick(){
+    this.props.column('/top/alltime')
+  }
+  
+  
+  render(){
+    return (
+      <div className="container">
+        <div className="title">
+          <h3>LeaderBoard</h3>
+        </div>
+      <table className="table table-striped table-bordered">
+          <thead>
+      <tr>
+        <th>#</th>
+        <th>Camper Name</th> 
+        <th><a href='#' onClick={this.onRecentClick}>Mining streak</a></th>
+        <th><a href='#' onClick={this.onAllTimeClick}>all time points</a> </th>
+      </tr>
+      </thead>
+          <tbody>
+           {this.props.users.map((user, i) => {
+              console.log(user)
+              return (
+               <tr>
+                <td>
+                  {i+1}
+                </td>
+                <td>
+                  <a href={"https://freecodecamp.com/"+ user.username}><img className="avatar" src={user.img}/>       {user.username}</a>
+                </td>
+                <td>
+                  {user.recent}
+                </td>
+                <td>
+                  {user.alltime}
+                </td>
+              </tr>)
+            })
+            }
+          </tbody>
+      </table>
+        </div>
+    )
+  }
+}
+
+class Application extends React.Component{
+  constructor(){
+    super()
+    this.state = {
+      users :[],
+    }
+    this.column = '/top/recent'
+    this.callback = this.callback.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+  }
+  callback(json){
+    this.setState({
+      users:json
+    })
+  }
+  
+  handleChange(newColumn){
+    if (newColumn != this.column){
+      this.column= newColumn
+      this.getData()
+    }
+  }
+  getData(){
+    $.get(this.props.apiroot + this.column, this.callback)
+  }
+  
+  componentDidMount(){
+    this.getData()
+    
+  }
+  
+  render(){
+    return (
+      
+      <div>
+        <Header />
+        <LeaderBoard column={this.handleChange} users={this.state.users}/>
+        <Footer />
+      </div>)
+  }
+}
+
+
+ReactDOM.render(<Application apiroot='https://fcctop100.herokuapp.com/api/fccusers' />, document.getElementById('app'))
+</script>
